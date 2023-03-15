@@ -73,18 +73,6 @@ RUN pip3 install setuptools \
     tqdm \
     psutil
 
-#######################################################################
-#                       install display settings                         
-#######################################################################
-RUN apt-get install -y --no-install-recommends \
-    libxau-dev \
-    libxdmcp-dev \
-    libxcb1-dev \
-    libxext-dev \
-    libx11-dev \
-    mesa-utils \
-    x11-apps
-
 RUN git clone --recursive https://github.com/0xNOY/piecemaker.git
 RUN cd piecemaker
 
