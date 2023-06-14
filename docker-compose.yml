@@ -1,0 +1,28 @@
+version: '2'
+services:
+  piecemaker:
+    image: piecemaker:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /tmp/.X11-unix/:/tmp/.X11-unix/
+    environment:
+      DISPLAY: $DISPLAY
+      XDG_RUNTIME_DIR: $XDG_RUNTIME_DIR
+    working_dir: "/piecemaker"
+    network_mode: "host"
+    privileged: true
+    restart: always
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+    command : python3 /piecemaker/main.py
+
+
