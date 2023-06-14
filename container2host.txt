@@ -1,2 +1,1 @@
-docker exec -it piecemaker_dokcer_piecemaker_1 bash
-docker cp {container_id}:piecemaker/data/dst/piece/{object_name} /{output_path}
+
